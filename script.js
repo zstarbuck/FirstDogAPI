@@ -1,12 +1,13 @@
-const main = document.querySelector("main");
+const main = document.querySelector(".main");
 
 fetch('https://dog.ceo/api/breeds/image/random/3')
     .then(response => response.json())
     .then(data => {
         const img = data.message
-            .map(`<img src="${data.message}" alt="Random dog image"`)
+        .map(msg => `<img src="${msg}" alt="Random dog image.">`)
             .join("");
-        main.insertAdjacentElement("beforeend", img);
+            console.log(typeof img)
+        main.insertAdjacentHTML("beforeend", img);
     }) //
 
 const  jsonObj = {
